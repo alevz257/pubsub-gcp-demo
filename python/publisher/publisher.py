@@ -32,9 +32,9 @@ if __name__ == "__main__":
   parser = argparse.ArgumentParser(
     description =__doc__, formatter_class=argparse.RawDescriptionHelpFormatter,
   )
-  project_number_var = "966837857153"
+  project_number_var = "" #input your project number
   parser.add_argument("message_data", help="Please put some message")
-  #parser.add_argument("project_number", default='966837857153', help="Your Google Cloud Project Number, 966837857153")
+  #parser.add_argument("project_number", default='966837857153', help="Your Google Cloud Project Number")
   parser.add_argument("cloud_region", default='asia-southeast2', help="Your Cloud Region, 'asia-southeast2'")
   parser.add_argument("zone_id", default='b', help="Your zone id, 'b'")
   parser.add_argument("topic_id", default='demo-pubsub-lite', help="Your topic id, 'demo-pubsub-lite'")
