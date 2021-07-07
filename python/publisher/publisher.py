@@ -32,15 +32,16 @@ if __name__ == "__main__":
   parser = argparse.ArgumentParser(
     description =__doc__, formatter_class=argparse.RawDescriptionHelpFormatter,
   )
-  parser.add_argument("project_number", help="Your Google Cloud Project Number, 966837857153")
-  parser.add_argument("cloud_region", help="Your Cloud Region, 'asia-southeast2'")
-  parser.add_argument("zone_id", help="Your zone id, 'b'")
-  parser.add_argument("topic_id", help="Your topic id, 'demo-pubsub-lite'")
+  project_number_var = "966837857153"
   parser.add_argument("message_data", help="Please put some message")
+  #parser.add_argument("project_number", default='966837857153', help="Your Google Cloud Project Number, 966837857153")
+  parser.add_argument("cloud_region", default='asia-southeast2', help="Your Cloud Region, 'asia-southeast2'")
+  parser.add_argument("zone_id", default='b', help="Your zone id, 'b'")
+  parser.add_argument("topic_id", default='demo-pubsub-lite', help="Your topic id, 'demo-pubsub-lite'")
 
   args = parser.parse_args()
 
   publish_messages(
-    args.project_number, args.cloud_region, args.zone_id, args.topic_id, args.message_data,
+    project_number_var, args.cloud_region, args.zone_id, args.topic_id, args.message_data,
   )
 

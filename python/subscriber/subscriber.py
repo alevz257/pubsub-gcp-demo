@@ -32,7 +32,7 @@ def recieve_messages(
   def callback(message: PubsubMessage):
     message_data = message.data.decode("utf-8")
     metadata = MessageMetadata.decode(message.message_id)
-    print(f"Received {message_data} of ordering key {message.ordering_key} with id {metadata}.")
+    print(f"Received ~ {message_data} ~ of ordering key {message.ordering_key} with id {metadata}.")
     message.ack()
 
   with SubscriberClient() as subscriber_client:
@@ -55,11 +55,12 @@ if __name__=="__main__":
   parser = argparse.ArgumentParser(
     description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter,
   )
+  project_number_var = "966837857153"
 
-  parser.add_argument("project_number", help="You Google Cloud Project Number, 966837857153")
-  parser.add_argument("cloud_region", help="Your Cloud Region, 'asia-southeast2'")
-  parser.add_argument("zone_id", help="Your zone ID, 'b'")
-  parser.add_argument("subscription_id", help="Your subscription ID, demo-pubsub-lite-sub")
+  #parser.add_argument("project_number", default='966837857153',type=str, help="You Google Cloud Project Number, 966837857153")
+  parser.add_argument("cloud_region", default='asia-southeast2', help="Your Cloud Region, 'asia-southeast2'")
+  parser.add_argument("zone_id", default='b', help="Your zone ID, 'b'")
+  parser.add_argument("subscription_id", default='demo-pubsub-lite-sub', help="Your subscription ID, demo-pubsub-lite-sub")
 
   parser.add_argument(
       "timeout",
@@ -72,7 +73,7 @@ if __name__=="__main__":
   args = parser.parse_args()
 
   recieve_messages(
-      args.project_number,
+      project_number_var,
       args.cloud_region,
       args.zone_id,
       args.subscription_id,

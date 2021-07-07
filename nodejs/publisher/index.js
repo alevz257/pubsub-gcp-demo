@@ -35,7 +35,7 @@ async function publishMessage(message) {
 }
 
 app.get('/', (req,res) => {
-  res.send("frontend is ok");
+  res.send("frontend is ok, call post /publish with data, curl -X POST -d '{message: {key: value}}' localhost:8091/publish ");
 });
 
 app.post('/publish', (req,res) => {
